@@ -20,6 +20,48 @@
                     @enderror
                 </div>
                 <div class="mb-2">
+                    <label for="name" class="mb-2 block uppercase text-gray-500 font-bold">Name</label>
+                    <input id="name" name="name" type="text" placeholder="Tu nombre"
+                        class="border p-3 w-full rounded-lg mb-2
+                        @error('name') border-red-600 bg-red-50 @enderror"
+                        value="{{ auth()->user()->name }}" />
+                    @error('name')
+                        <p class="text-red-600">* {{ $message }}</p>
+                    @enderror
+                </div>
+                <div class="mb-2">
+                    <label for="email" class="mb-2 block uppercase text-gray-500 font-bold">Email</label>
+                    <input id="email" name="email" type="email" placeholder="Tu email"
+                        class="border p-3 w-full rounded-lg mb-2
+                        @error('email') border-red-600 bg-red-50 @enderror"
+                        value="{{ auth()->user()->email }}" />
+                    @error('email')
+                        <p class="text-red-600">* {{ $email }}</p>
+                    @enderror
+                </div>
+                {{-- <div class="mb-2">
+                    <label for="password" class="mb-2 block uppercase text-gray-500 font-bold">Password Actual</label>
+                    <input id="password" name="password" type="password" placeholder="Tu password"
+                        class="border p-3 w-full rounded-lg mb-2
+                        @error('password') border-red-600 bg-red-50 @enderror"
+                    />
+                    @error('password')
+                        <p class="text-red-600">* {{ $message }}</p>
+                    @enderror
+                </div>
+
+                <div class="mb-2">
+                    <label for="newpassword" class="mb-2 block uppercase text-gray-500 font-bold">Nuevo password</label>
+                    <input id="newpassword" name="newpassword" type="password" placeholder="Tu nuevo password"
+                        class="border p-3 w-full rounded-lg mb-2
+                        @error('newpassword') border-red-600 bg-red-50 @enderror"
+                    />
+                    @error('newpassword')
+                        <p class="text-red-600">* {{ $message }}</p>
+                    @enderror
+                </div> --}}
+ 
+                <div class="mb-2">
                     <label for="imagen" class="mb-2 block uppercase text-gray-500 font-bold">Imagen perfil</label>
                     <input id="imagen" name="imagen" type="file" placeholder="Tu imagen de usuario"
                         class="border p-3 w-full rounded-lg mb-2"

@@ -8,7 +8,7 @@
     <div class="flex justify-center">
         <div class="w-8/12 lg:w-6/12 md:flex">
             <div class="md:w-8/12 lg:w-6/12 px-2 bg-gray-200 rounded-full py-3 items-center md:mr-10">
-                <img src="{{ asset('https://res.cloudinary.com/dguhnftxe/image/upload/v1691999830/devstagram/cutbot_nzqzhl.png') }}"
+                <img src="{{ isset($user->imagen) ? asset('perfiles/'.$user->imagen) : asset('https://res.cloudinary.com/dguhnftxe/image/upload/v1691999830/devstagram/cutbot_nzqzhl.png') }}"
                     alt="user_image_profile" class="rounded-full" />
             </div>
             <div class="md:w-8/12 lg:w-6/12 px-5 items-center md:items-start flex flex-col justify-center py-10 md:ml-10">
@@ -33,7 +33,7 @@
                     <span class="font-normal">Siguiendo</span>
                 </p>
                 <p class="text-gray-800 text-sm mb-3 font-bold">
-                    0
+                    {{$user-> posts->count()}}
                     <span class="font-normal">Posts</span>
                 </p>
             </div>

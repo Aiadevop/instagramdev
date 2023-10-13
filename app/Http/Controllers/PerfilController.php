@@ -7,6 +7,7 @@ use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use Intervention\Image\Facades\Image;
 
+
 class PerfilController extends Controller
 {
     public function __construct()
@@ -23,15 +24,22 @@ class PerfilController extends Controller
         //dd($request);
         //Modifica el Request
         $request->request->add(['username' => Str::slug($request->username)]);
+        $request->request->add(['name' => $request->name]);
+        $request->request->add(['email' => $request->email]);
+
 
         //El not_in hace que no se pueda acceder a esos usuarios, si lo haces con in: solo permite elegir los de la lista
         $this->validate($request, [
             'username' => ['required', 'min:3', 'unique:users,username,' .auth()->user()->id, 'max:20', 'not_in:twitter,editar-perfil'],
+            'name' => 'required | max:30',
+            'email' => ['required' , 'unique:users,email,'.auth()->user()->id, 'max:60'],
+    
+
         ]);
 
         if ($request->imagen) {
             // Asi enviamos el token
-            $imagen = $request->file('file');
+            $imagen = $request->file('imagen');
             // Nombre de imagen único
             $nombreImagen = Str::uuid() . "." . $imagen->extension();
             // Instancia de la imagen con Intervention Image
@@ -47,7 +55,9 @@ class PerfilController extends Controller
         //Guardar cambios
         $usuario = User::find(auth()->user()->id);
         $usuario-> username = $request->username;
-        $usuario-> imagen = $nombreImagen ?? null;
+        $usuario-> name = $request->name;
+        $usuario-> email = $request->email;
+        $usuario-> imagen = $nombreImagen ?? auth()->user()->imagen ?? '';
         $usuario-> save();
 
         //Redireccionar usuario
