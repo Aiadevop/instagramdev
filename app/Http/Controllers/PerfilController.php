@@ -7,7 +7,6 @@ use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use Intervention\Image\Facades\Image;
 
-
 class PerfilController extends Controller
 {
     public function __construct()
@@ -18,6 +17,7 @@ class PerfilController extends Controller
     {
         return view('perfil.index');
     }
+
     public function store(Request $request)
     {
 
@@ -63,4 +63,5 @@ class PerfilController extends Controller
         //Redireccionar usuario
         return redirect()->route('posts.index', $usuario->username);
     }
+
 }
