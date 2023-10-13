@@ -43,7 +43,7 @@
                     <p class="text-red-600 pb-4">* {{ session('mensaje') }}</p>
                 @endif
                 <input type="submit" value="Iniciar sesión"
-                    class="bg-sky-600 hover:bg-sky-700 transition-colors cursor-pointer uppercase font-bold w-full p-3 text-white rounded-lg mb-2" />
+                    class="bg-gray-600 hover:bg-gray-700 transition-colors cursor-pointer uppercase font-bold w-full p-3 text-white rounded-lg mb-2" />
             </form>
         </div>
     </div>
