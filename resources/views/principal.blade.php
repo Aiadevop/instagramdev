@@ -1,9 +1,9 @@
 @extends ("layouts.app")
 
-@section("titulo")
-Principal
+@section('titulo')
+    Principal
 @endsection
 
-@section("contenido")
-Aquí escribimos el contenido.
+@section('contenido')
+    <x-listar-post :posts="$posts" />
 @endsection

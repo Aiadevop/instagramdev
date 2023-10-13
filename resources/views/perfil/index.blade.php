@@ -39,27 +39,26 @@
                         <p class="text-red-600">* {{ $email }}</p>
                     @enderror
                 </div>
-                {{-- <div class="mb-2">
-                    <label for="password" class="mb-2 block uppercase text-gray-500 font-bold">Password Actual</label>
-                    <input id="password" name="password" type="password" placeholder="Tu password"
-                        class="border p-3 w-full rounded-lg mb-2
-                        @error('password') border-red-600 bg-red-50 @enderror"
-                    />
+                
+                <div class="mb-2">
+                    <label for="password" class="mb-2 block uppercase text-gray-500 font-bold">Password Antiguo</label>
+                    <input id="password" name="password" type="password" placeholder="Tu password antiguo"
+                        class="border p-3 w-full rounded-lg mb-2 @error('password') border-red-600 bg-red-50 @enderror" />
                     @error('password')
                         <p class="text-red-600">* {{ $message }}</p>
                     @enderror
                 </div>
 
+                @if (!empty(auth()->user()->password))
                 <div class="mb-2">
-                    <label for="newpassword" class="mb-2 block uppercase text-gray-500 font-bold">Nuevo password</label>
+                    <label for="newpassword" class="mb-2 block uppercase text-gray-500 font-bold">Nuevo Password</label>
                     <input id="newpassword" name="newpassword" type="password" placeholder="Tu nuevo password"
-                        class="border p-3 w-full rounded-lg mb-2
-                        @error('newpassword') border-red-600 bg-red-50 @enderror"
-                    />
+                        class="border p-3 w-full rounded-lg mb-2 @error('newpassword') border-red-600 bg-red-50 @enderror" />
                     @error('newpassword')
                         <p class="text-red-600">* {{ $message }}</p>
                     @enderror
-                </div> --}}
+                </div>
+                @endif
  
                 <div class="mb-2">
                     <label for="imagen" class="mb-2 block uppercase text-gray-500 font-bold">Imagen perfil</label>

@@ -22,7 +22,7 @@ class PostController extends Controller
         // $posts = Post::where('user_id', $user->id)->get();
         $posts = Post::where('user_id', $user->id)->paginate(8);
 
-        return view('layouts.dashboard', [
+        return view('dashboard', [
             'user' => $user,
             'posts'=> $posts
         ]);
