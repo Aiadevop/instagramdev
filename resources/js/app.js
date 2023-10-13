@@ -6,10 +6,10 @@ Dropzone.autoDiscover = false;
 if (document.querySelector('#dropzone')) {
     let dropzone = new Dropzone("#dropzone", {
         dictDefaultMessage: "Arrastra aquí tu imagen 🖼",
-        acceptedFiles: ".png,.jpg,.jpeg,.gif",
+        acceptedFiles: ".png,.jpg,.jpeg,.gif,.pdf",
         addRemoveLinks: true,
         dictRemoveFile: "Borrar Archivo",
-        maxFiles: 1,
+        maxFiles: 2,
         uploadMultiple: false,
 
         init: function () {
